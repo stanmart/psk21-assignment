@@ -46,4 +46,4 @@ calibration:
 
 
 exogenous: !Normal
-   Sigma: [[0.01]]
+   Sigma: [[5e-5]]
