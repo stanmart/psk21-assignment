@@ -1,0 +1,45 @@
+name: RBC
+
+symbols:
+
+   states:  [a, k]
+   controls: [i, l]
+   exogenous: [eps]
+   parameters: [beta, phi, delta, alpha, rho]
+
+definitions: |
+   y[t] = exp(a[t])*k[t]^alpha*l[t]^(1-alpha)
+   c[t] = y[t] - i[t]
+   r[t] = alpha*y[t]/k[t]
+   w[t] = (1-alpha)*y[t]/l[t]
+
+equations:
+
+
+   arbitrage: |
+      -1/c[t] + beta * (1 + r[t+1] - delta) * (1/c[t+1])  ⟂ 0.0 <= i[t] <= inf
+      -w[t] + phi * c[t] / (1 - l[t])                     ⟂ 0.0 <= l[t] <= inf
+
+   transition: |
+      a[t] = exp(rho * log(a[t-1]) + eps)
+      k[t] = (1-delta) * k[t-1] + i[t-1]
+
+calibration:
+
+      beta : 0.94
+      phi: 4
+      delta : 0.06
+      alpha : 0.33
+      rho : 0.65
+
+      l: 0.33
+      a: exp(0)
+      r: 1/beta - 1 + delta
+      k: l / (r/alpha)^(1/(1-alpha))
+      i: delta * k
+      c: a*k^alpha*l^(1-alpha) - i
+      w: (1-alpha)*a*(k/l)^(alpha)
+
+
+exogenous: !Normal
+   Sigma: [[0.01]]
