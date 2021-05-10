@@ -16,6 +16,7 @@ definitions: |
 equations:
 
 
+   # ezt a blokkot kell módosítani a levezetett viselkedési egyenletek szerint
    arbitrage: |
       -1/c[t] + beta * (1 + r[t+1] - delta) * (1/c[t+1])  ⟂ 0.0 <= i[t] <= inf
       -w[t] + phi * c[t] / (1 - l[t])                     ⟂ 0.0 <= l[t] <= inf
@@ -41,7 +42,7 @@ calibration:
       r: alpha * y / k
       w: (1-alpha) * y / l
 
-      phi: (1-l) * w / c
+      phi: w / c
 
 
 exogenous: !Normal
