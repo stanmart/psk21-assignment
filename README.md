@@ -5,6 +5,7 @@ Kurzuszáró a Heller Farkas Szakkollégium PSK II. kurzus makroökonómia blokk
 ## Instrukciók
 
   - Nyisd meg a feladatokat tartalmazó (`assignment.ipynb`) notebookot a következő linken: https://mybinder.org/v2/gh/stanmart/psk21-assignment/HEAD. Ha egyelőre csak olvasni szeretnéd a feladatokat, és nem szeretnél kódokat futtatni, ezen a linken gyorsabban megnyílik a notebook nem interaktív formában: https://nbviewer.jupyter.org/github/stanmart/psk21-assignment/blob/master/assignment.ipynb.
+  - A kernel not found üzenetre válaszd ki az egyetlen rendelkezésre álló (Python 3) opciót
   - Kövesd a benne található utasításokat
   - A beküldött megoldásnak hét fájlból kell állnia:
     - Válaszok a feltett kérdésekre doc/txt/pdf dokumentumban
